@@ -29,21 +29,21 @@ export async function generateStaticParams() {
 
 export const metadata: Metadata = {
 	metadataBase: new URL('https://startup.sammi.ac'),
-	title: 'Sammi praktikum | Dasturlash kurslari',
+	title: 'Ramiz praktikum | Dasturlash kurslari',
 	description:
-		"Sammi Praktikum Next.js dasturlash kurslari, amaliyotlar, startup loyihalar va asosiysi sifatli ta'limdir.",
-	authors: [{ name: 'Samar Badriddinov', url: 'https://startup.sammi.ac' }],
+		"Ramiz Praktikum Next.js dasturlash kurslari, amaliyotlar, startup loyihalar va asosiysi sifatli ta'limdir.",
+	authors: [{ name: 'Ramiz Sheraliyev', url: 'https://startup.sammi.ac' }],
 	icons: { icon: '/logo.svg' },
 	openGraph: {
-		title: 'Sammi praktikum | Dasturlash kurslari',
+		title: 'Ramiz praktikum | Dasturlash kurslari',
 		description:
-			"Sammi Praktikum Next.js dasturlash kurslari, amaliyotlar, startup loyihalar va asosiysi sifatli ta'limdir.",
+			"Ramiz Praktikum Next.js dasturlash kurslari, amaliyotlar, startup loyihalar va asosiysi sifatli ta'limdir.",
 		type: 'website',
 		url: 'https://startup.sammi.ac',
 		locale: 'uz_UZ',
 		images: 'https://media.graphassets.com/f4jkBWQ6SVaKwySKRNQT',
 		countryName: 'Uzbekistan',
-		siteName: 'Sammi',
+		siteName: 'Ramiz',
 		emails: 'info@sammi.ac',
 	},
 	keywords:

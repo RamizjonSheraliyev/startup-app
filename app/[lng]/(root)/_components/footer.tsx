@@ -62,7 +62,7 @@ function Footer() {
 									className='text-sm hover:text-blue-500 hover:underline dark:hover:text-blue-300'
 									href='mailto:info@sammi.ac'
 								>
-									info@sammi.ac
+									sheraliyevramiz2@gmail.com
 								</a>
 							</div>
 
