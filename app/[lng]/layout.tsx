@@ -85,7 +85,7 @@ function RootLayout({ children, params: { lng } }: Props) {
 						<div>{children}</div>
 					</ThemeProvider>
 				</body>
-				<GoogleAnalytics gaId='G-B8NJKXCBV4' />
+				<GoogleAnalytics gaId='G-9TGEKQMYQX' />
 			</html>
 		</ClerkProvider>
 	)
