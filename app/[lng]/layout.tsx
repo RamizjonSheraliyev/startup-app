@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 		type: 'website',
 		url: 'https://www.ramizjon.uz/',
 		locale: 'uz_UZ',
-		images: '/ceo.png',
+		images: '/public/ceo.png',
 		countryName: 'Uzbekistan',
 		siteName: 'Ramiz',
 		emails: 'sheraliyevramiz2@gmail.com',
