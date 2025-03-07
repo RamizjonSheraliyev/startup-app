@@ -39,15 +39,15 @@ export const metadata: Metadata = {
 		description:
 			"Ramiz Praktikum Next.js dasturlash kurslari, amaliyotlar, startup loyihalar va asosiysi sifatli ta'limdir.",
 		type: 'website',
-		url: 'https://www.ramizjon.uz/',
+		url: 'https://vercel.com/',
 		locale: 'uz_UZ',
-		images: '/public/ceo.png',
+		images: '/ceo.png',
 		countryName: 'Uzbekistan',
 		siteName: 'Ramiz',
 		emails: 'sheraliyevramiz2@gmail.com',
 	},
 	keywords:
-		"Praktikum, Praktikum sammi, NextJS, NextJS to'liq kurs, NextJS kurs, NextJS dasturlash, Startup, Startup loyiha, Startup Ramiz, Sammi, Ramiz praktikum, Ramiz dasturlash, Ramiz startup, Ramiz kurs, Ramiz kurslari, Ramiz dasturlash kurslari, Ramiz startup kurslari, Ramiz startup loyihalari, Ramiz startup loyiha, Ramiz startup loyihasi, Ramiz startup loyihasi dasturlash",
+		"Praktikum, Praktikum sammi, NextJS, NextJS to'liq kurs, NextJS kurs, NextJS dasturlash, Startup, Startup loyiha, Startup Ramiz, Ramiz, Ramiz praktikum, Ramiz dasturlash, Ramiz startup, Ramiz kurs, Ramiz kurslari, Ramiz dasturlash kurslari, Ramiz startup kurslari, Ramiz startup loyihalari, Ramiz startup loyiha, Ramiz startup loyihasi, Ramiz startup loyihasi dasturlash",
 }
 
 interface Props extends ChildProps {
