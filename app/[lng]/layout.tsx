@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 		type: 'website',
 		url: 'https://vercel.com/',
 		locale: 'uz_UZ',
-		images: '/ceo.png',
+		images: 'https://cdn-icons-png.flaticon.com/512/4729/4729436.png',
 		countryName: 'Uzbekistan',
 		siteName: 'Ramiz',
 		emails: 'sheraliyevramiz2@gmail.com',
