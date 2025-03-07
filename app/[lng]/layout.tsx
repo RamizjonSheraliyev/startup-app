@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 		emails: 'sheraliyevramiz2@gmail.com',
 	},
 	keywords:
-		"Praktikum, Praktikum sammi, NextJS, NextJS to'liq kurs, NextJS kurs, NextJS dasturlash, Startup, Startup loyiha, Startup sammi, Sammi, Sammi praktikum, Sammi dasturlash, Sammi startup, Sammi kurs, Sammi kurslari, Sammi dasturlash kurslari, Sammi startup kurslari, Sammi startup loyihalari, Sammi startup loyiha, Sammi startup loyihasi, Sammi startup loyihasi dasturlash",
+		"Praktikum, Praktikum sammi, NextJS, NextJS to'liq kurs, NextJS kurs, NextJS dasturlash, Startup, Startup loyiha, Startup Ramiz, Sammi, Ramiz praktikum, Ramiz dasturlash, Ramiz startup, Ramiz kurs, Ramiz kurslari, Ramiz dasturlash kurslari, Ramiz startup kurslari, Ramiz startup loyihalari, Ramiz startup loyiha, Ramiz startup loyihasi, Ramiz startup loyihasi dasturlash",
 }
 
 interface Props extends ChildProps {
