@@ -42,16 +42,16 @@ function Footer() {
 								<div className='flex flex-col space-y-1'>
 									<a
 										className='text-sm hover:text-blue-500 hover:underline dark:hover:text-blue-300'
-										href='tel:+998900000000'
+										href='tel:+998932239770'
 									>
-										+998 (90) 000-00-00
+										+998 (93) 223 97 70
 									</a>
 									<Separator className='dark:bg-gray-500' />
 									<a
 										className='text-sm hover:text-blue-500 hover:underline dark:hover:text-blue-300'
-										href='tel:+31220777777'
+										href='tel:+998932239770'
 									>
-										+31 220 777 777
+										+99893 223 97 70
 									</a>
 								</div>
 							</div>

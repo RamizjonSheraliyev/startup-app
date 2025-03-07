@@ -12,20 +12,40 @@ export async function generateMetadata(
 	{ params }: { params: { slug: string } },
 	parent: ResolvingMetadata
 ): Promise<Metadata> {
-	const blog = await getDetailedBlog(params.slug!)
+	const blog = await getDetailedBlog(params.slug)
+
+	if (!blog) {
+		console.warn(`⚠️ Blog not found for slug: ${params.slug}`)
+		return {
+			title: 'Blog not found',
+			description: 'The requested blog post was not found.',
+		}
+	}
 
 	return {
 		title: blog.title,
-		description: blog.description,
+		description: blog.description || 'No description available.',
 		openGraph: {
-			images: blog.image.url,
+			images: blog.image?.url ? [blog.image.url] : [],
 			title: blog.title,
-			description: blog.description,
+			description: blog.description || 'No description available.',
 		},
 	}
 }
+
 async function Page({ params }: { params: { slug: string } }) {
 	const blog = await getDetailedBlog(params.slug)
+
+	if (!blog) {
+		return (
+			<div className="container mx-auto max-w-5xl pt-[15vh] text-center">
+				<h1 className="text-4xl font-bold">Blog Not Found</h1>
+				<p className="mt-4 text-muted-foreground">
+					The blog post you are looking for does not exist or was removed.
+				</p>
+			</div>
+		)
+	}
 
 	return (
 		<div className='container mx-auto max-w-5xl pt-[15vh]'>
@@ -35,19 +55,21 @@ async function Page({ params }: { params: { slug: string } }) {
 
 			<div className='mt-4 flex flex-wrap items-center gap-4 max-md:justify-center'>
 				<div className='flex items-center gap-2'>
-					<Image
-						src={blog.author.image.url}
-						alt='author'
-						width={30}
-						height={30}
-						className='rounded-sm object-cover'
-					/>
+					{blog.author.image?.url && (
+						<Image
+							src={blog.author.image.url}
+							alt='author'
+							width={30}
+							height={30}
+							className='rounded-sm object-cover'
+						/>
+					)}
 					<p>by {blog.author.name}</p>
 				</div>
 				<Minus />
 				<div className='flex items-center gap-2'>
 					<Clock className='size-5' />
-					<p>{getReadingTime(blog.content.html)} min read</p>
+					<p>{getReadingTime(blog.content?.html || '')} min read</p>
 				</div>
 				<Minus />
 				<div className='flex items-center gap-2'>
@@ -56,13 +78,15 @@ async function Page({ params }: { params: { slug: string } }) {
 				</div>
 			</div>
 
-			<Image
-				src={blog.image.url}
-				alt='alt'
-				width={`1120`}
-				height={`595`}
-				className='mt-4 rounded-md'
-			/>
+			{blog.image?.url && (
+				<Image
+					src={blog.image.url}
+					alt={blog.title}
+					width={1120}
+					height={595}
+					className='mt-4 rounded-md'
+				/>
+			)}
 
 			<div className='relative mt-12 flex w-full max-md:flex-col-reverse md:gap-12'>
 				<div className='flex flex-col space-y-3'>
@@ -72,26 +96,28 @@ async function Page({ params }: { params: { slug: string } }) {
 					</div>
 				</div>
 				<div className='prose max-w-none flex-1 dark:prose-invert'>
-					{parse(blog.content.html)}
+					{parse(blog.content?.html || '')}
 				</div>
 			</div>
 
 			<Separator className='my-3' />
 
 			<div className='mt-6 flex items-center gap-6 max-md:flex-col'>
-				<Image
-					src={blog.author.image.url}
-					alt='author'
-					width='155'
-					height='155'
-					className='rounded-md max-md:self-start'
-				/>
+				{blog.author.image?.url && (
+					<Image
+						src={blog.author.image.url}
+						alt='author'
+						width='155'
+						height='155'
+						className='rounded-md max-md:self-start'
+					/>
+				)}
 				<div className='flex flex-1 flex-col space-y-4'>
 					<h2 className='font-space-grotesk text-3xl font-bold'>
 						{blog.author.name}
 					</h2>
 					<p className='line-clamp-2 text-muted-foreground'>
-						{blog.author.bio}
+						{blog.author.bio || 'No bio available.'}
 					</p>
 				</div>
 			</div>

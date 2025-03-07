@@ -2,11 +2,15 @@ import { IBlog } from '@/types'
 import request, { gql } from 'graphql-request'
 import { cache } from 'react'
 
-const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!
+const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
 
-export const getBlogs = async () => {
+if (!graphqlAPI) {
+	console.error('❌ Error: NEXT_PUBLIC_GRAPHCMS_ENDPOINT is not defined in environment variables!')
+}
+
+export const getBlogs = async (): Promise<IBlog[]> => {
 	const query = gql`
-		query MyQuery {
+		query GetBlogs {
 			blogs {
 				title
 				createdAt
@@ -36,13 +40,26 @@ export const getBlogs = async () => {
 		}
 	`
 
-	const { blogs } = await request<{ blogs: IBlog[] }>(graphqlAPI, query)
-	return blogs
+	try {
+		if (!graphqlAPI) return []
+		console.log('🔍 Fetching all blogs...')
+		const { blogs } = await request<{ blogs: IBlog[] }>(graphqlAPI, query)
+		console.log('✅ Blogs fetched:', blogs.length)
+		return blogs
+	} catch (error) {
+		console.error('❌ Error fetching blogs:', error)
+		return []
+	}
 }
 
-export const getDetailedBlog = cache(async (slug: string) => {
+export const getDetailedBlog = cache(async (slug: string): Promise<IBlog | null> => {
+	if (!slug) {
+		console.error('❌ Error: Slug is undefined or empty!')
+		return null
+	}
+
 	const query = gql`
-		query MyQuery($slug: String!) {
+		query GetDetailedBlog($slug: String!) {
 			blog(where: { slug: $slug }) {
 				author {
 					name
@@ -69,10 +86,25 @@ export const getDetailedBlog = cache(async (slug: string) => {
 					slug
 				}
 				title
+				description
 			}
 		}
 	`
 
-	const { blog } = await request<{ blog: IBlog }>(graphqlAPI, query, { slug })
-	return blog
+	try {
+		if (!graphqlAPI) return null
+		console.log(`🔍 Fetching blog with slug: "${slug}"...`)
+		const { blog } = await request<{ blog: IBlog | null }>(graphqlAPI, query, { slug })
+
+		if (!blog) {
+			console.warn(`⚠️ Warning: Blog with slug "${slug}" not found!`)
+			return null
+		}
+
+		console.log('✅ Blog fetched successfully:', blog)
+		return blog
+	} catch (error) {
+		console.error(`❌ Error fetching detailed blog (slug: ${slug}):`, error)
+		return null
+	}
 })
