@@ -28,18 +28,18 @@ export async function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-	metadataBase: new URL('https://vercel.com/'),
+	metadataBase: new URL('https://www.ramizjon.uz/'),
 	title: 'Ramiz praktikum | Dasturlash kurslari',
 	description:
 		"Ramiz Praktikum Next.js dasturlash kurslari, amaliyotlar, startup loyihalar va asosiysi sifatli ta'limdir.",
-	authors: [{ name: 'Ramiz Sheraliyev', url: 'https://vercel.com/' }],
+	authors: [{ name: 'Ramiz Sheraliyev', url: 'https://www.ramizjon.uz/' }],
 	icons: { icon: '/logo.svg' },
 	openGraph: {
 		title: 'Ramiz praktikum | Dasturlash kurslari',
 		description:
 			"Ramiz Praktikum Next.js dasturlash kurslari, amaliyotlar, startup loyihalar va asosiysi sifatli ta'limdir.",
 		type: 'website',
-		url: 'https://vercel.com/',
+		url: 'https://www.ramizjon.uz/',
 		locale: 'uz_UZ',
 		images: 'https://cdn-icons-png.flaticon.com/512/4729/4729436.png',
 		countryName: 'Uzbekistan',
